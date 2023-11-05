@@ -4,5 +4,5 @@ jobs:
   test:
     runs-on: windows-latest
     steps:
-      - name: Get
-      run: echo asada
+      - name: Get repository code
+        run: echo asada
