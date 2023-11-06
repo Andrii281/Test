@@ -1,6 +1,7 @@
 name: Test React App
-on: pull_request_review:
-  types: [submitted]
+on: 
+  pull_request_review:
+    types: [submitted]
 jobs:
   test:
     runs-on: windows-latest
