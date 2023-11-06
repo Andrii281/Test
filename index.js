@@ -10,4 +10,6 @@ exec('cd', (error, stdout, stderr) => {
     return;
   }
   console.log(`stdout ${stdout}`)
+  console.log(`stdout ${stdout}`)
+  console.log(`stdout ${stdout}`)
 })
