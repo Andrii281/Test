@@ -2,7 +2,7 @@ name: Test React App
 on: 
   pull_request:
     types: 
-      - assigned
+      - opened
 jobs:
   test:
     runs-on: windows-latest
