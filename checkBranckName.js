@@ -11,12 +11,14 @@ function checkBranchName (branchName) {
   }
   if (!branchName.match(/^(PILLP-\d+){1}/)) {
     
-    console.log('Branch name must start with PILLP-$(TASK_NUMBER): PILLP-1_project_deploy');
+    console.error('Branch name must start with PILLP-$(TASK_NUMBER): PILLP-1_project_deploy');
+    console.error(`branch name \"${branchName}\" is forbidden`);
     process.exit(1);
   }
   if (!branchName.match(/(_[a-z]+){1,}$/)) {
-    console.log(branchName.match(/(_[a-z]+){1,}$/))
-    console.log('Body of branch name should be in the snake_case lowercase format: PILLP-1_project_deploy');
+    console.error(branchName.match(/(_[a-z]+){1,}$/))
+    console.error('Body of branch name should be in the snake_case lowercase format: PILLP-1_project_deploy');
+    onsole.error(`branch name \"${branchName}\" is forbidden`);
     process.exit(1);
   }
 }
