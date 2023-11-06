@@ -1,10 +1,15 @@
 name: Test React App
-on: push
+pull_request_review:
+  types: [submitted]
 jobs:
   test:
     runs-on: windows-latest
     steps:
       - name: Get repository code
         uses: actions/checkout@v3
+      - name: install
+        run: npm i
       - name: Aplication
-        run: node exec_file_demo.js
+        run: node checkBranckName.js
+      - name: Test
+        run: npm run test
