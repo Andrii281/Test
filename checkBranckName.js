@@ -1,8 +1,8 @@
 const { execFileSync } = require('child_process');
-const { GITHUB_ACTION_REPOSITORY } = process.env;
+const { GITHUB_ACTION_PATH } = process.env;
 
-const BranchName = GITHUB_ACTION_REPOSITORY ?? execFileSync('git',['rev-parse', '--abbrev-ref', 'HEAD']).toString().trim();
-console.log("CI_MERGE_REQUEST_SOURCE_BRANCH_NAME: \n", GITHUB_ACTION_REPOSITORY)
+const BranchName = GITHUB_ACTION_PATH ?? execFileSync('git',['rev-parse', '--abbrev-ref', 'HEAD']).toString().trim();
+console.log("CI_MERGE_REQUEST_SOURCE_BRANCH_NAME: \n", GITHUB_ACTION_PATH)
 console.log("execFileSync: \n", execFileSync('git',['rev-parse', '--abbrev-ref', 'HEAD']).toString().trim())
 
 checkBranchName(BranchName);
