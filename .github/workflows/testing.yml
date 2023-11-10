@@ -1,8 +1,6 @@
 name: Test React App
 on: 
-  pull_request:
-    types: 
-      - assigned
+  push
 jobs:
   test:
     runs-on: windows-latest
