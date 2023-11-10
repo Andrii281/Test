@@ -2,6 +2,8 @@ const { execFileSync } = require('child_process');
 const { CI_MERGE_REQUEST_SOURCE_BRANCH_NAME } = process.env;
 
 const BranchName = CI_MERGE_REQUEST_SOURCE_BRANCH_NAME ?? execFileSync('git',['rev-parse', '--abbrev-ref', 'HEAD']).toString().trim();
+console.log("CI_MERGE_REQUEST_SOURCE_BRANCH_NAME: \n", CI_MERGE_REQUEST_SOURCE_BRANCH_NAME)
+console.log("execFileSync: \n", execFileSync('git',['rev-parse', '--abbrev-ref', 'HEAD']).toString().trim())
 
 checkBranchName(BranchName);
 

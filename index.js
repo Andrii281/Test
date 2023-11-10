@@ -12,4 +12,7 @@ exec('cd', (error, stdout, stderr) => {
   console.log(`stdout ${stdout}`)
   console.log(`stdout ${stdout}`)
   console.log(`stdout ${stdout}`)
+  console.log(`stdout ${stdout}`)
+  console.log(`stdout ${stdout}`)
+  console.log(`stdout ${stdout}`)
 })
