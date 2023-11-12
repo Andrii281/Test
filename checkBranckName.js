@@ -1,7 +1,8 @@
 const { execFileSync } = require('child_process');
-const { PULL_TITLE } = process.env;
+const { PULL_TITLE, GITHUB_HEAD_REF } = process.env;
 
 const BranchName = PULL_TITLE ?? "Error";
+console.log("GITHUB_HEAD_REF: \n", GITHUB_HEAD_REF)
 console.log("CI_MERGE_REQUEST_SOURCE_BRANCH_NAME/TITLE: \n", PULL_TITLE)
 console.log("execFileSync: \n", execFileSync('git',['rev-parse', '--abbrev-ref', 'HEAD']).toString().trim())
 console.log("BranchName: ", BranchName)
