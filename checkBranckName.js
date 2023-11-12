@@ -1,8 +1,8 @@
 const { execFileSync } = require('child_process');
-const { GITHUB_ACTION_PATH } = process.env;
+const { TITLE } = process.env;
 
-const BranchName = github.event.pull_request.title ?? "Error";
-console.log("CI_MERGE_REQUEST_SOURCE_BRANCH_NAME: \n", GITHUB_ACTION_PATH)
+const BranchName = TITLE ?? "Error";
+console.log("CI_MERGE_REQUEST_SOURCE_BRANCH_NAME/TITLE: \n", TITLE)
 console.log("execFileSync: \n", execFileSync('git',['rev-parse', '--abbrev-ref', 'HEAD']).toString().trim())
 console.log("BranchName: ", BranchName)
 
