@@ -7,6 +7,7 @@ console.log("execFileSync: \n", execFileSync('git',['rev-parse', '--abbrev-ref',
 console.log("BranchName: ", BranchName)
 
 checkBranchName("BranchName: ", BranchName);
+checkBranchName("process.env: ", process.env);
 
 function checkBranchName (branchName) {
   if(branchName.match(/main$|develop$/)) {
