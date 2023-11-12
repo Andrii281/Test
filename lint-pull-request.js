@@ -4,7 +4,7 @@ if(GITHUB_EVENT_NAME !== "pull_request") {
   console.log("no pull request")
 }
 
-pullRequestName(GITHUB_EVENT_NAME)
+lintPullRequest(GITHUB_EVENT_NAME)
 
 function lintPullRequest(pullRequestName) {
   const startNmaeCheck = pullRequestName.match(/^(\[ PILLP-\d+ ]){1}/);
