@@ -1,0 +1,17 @@
+name: Test React App
+on: 
+  push
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: install
+        run: npm i
+      - name : Print Title of PR
+        run: echo The Title of your PR is ${{ github.event.pull_request.title }}
+      - name: Aplication
+        env:
+          PULL_TITLE: ${{ toJson(github.event.pull_request.title) }}
+        run: node checkBranckName.js
