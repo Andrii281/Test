@@ -1,7 +1,6 @@
 name: Test React App
 on: 
-  pull_request:
-    types: [opened, reopened, edited, closed]
+  push
 jobs:
   test:
     runs-on: windows-latest
@@ -10,9 +9,7 @@ jobs:
         uses: actions/checkout@v3
       - name: install
         run: npm i
-      - name : Print Title of PR
-        run: echo The Title of your PR is ${{ github.event.pull_request.title }}
       - name: Aplication
         env:
-          PULL_TITLE: ${{ github.event.pull_request.title }}
-        run: node checkBranckName.js
+          PULL_TITLE: ${{ toJson(github.event.pull_request.title) }}
+        run: node lint-pull-request.js
