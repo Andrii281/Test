@@ -1,5 +1,7 @@
-const { execFileSync } = require('child_process');
+const child_process = require("child_process");
+
 const { PULL_TITLE, GITHUB_HEAD_REF, GITHUB_EVENT_NAME } = process.env;
+
 
 
 console.log("PULL_TITLE: ", PULL_TITLE);
