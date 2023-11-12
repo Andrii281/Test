@@ -6,8 +6,8 @@ console.log("CI_MERGE_REQUEST_SOURCE_BRANCH_NAME/TITLE: \n", PULL_TITLE)
 console.log("execFileSync: \n", execFileSync('git',['rev-parse', '--abbrev-ref', 'HEAD']).toString().trim())
 console.log("BranchName: ", BranchName)
 
-checkBranchName("BranchName: ", BranchName);
-checkBranchName("process.env: ", process.env);
+console.log("BranchName: ", BranchName);
+console.log("process.env: ", process.env);
 
 function checkBranchName (branchName) {
   if(branchName.match(/main$|develop$/)) {
