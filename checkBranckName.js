@@ -1,9 +1,10 @@
 const child_process = require("child_process");
 
-const { PULL_TITLE, GITHUB_HEAD_REF, GITHUB_EVENT_NAME } = process.env;
+const { PULL_TITLE, GITHUB_HEAD_REF, GITHUB_EVENT_NAME, GITHUB_REF_NAME } = process.env;
 
 console.log("PULL_TITLE: ", PULL_TITLE);
 console.log("GITHUB_HEAD_REF: ", GITHUB_HEAD_REF);
+console.log("GITHUB_REF_NAME: ", GITHUB_REF_NAME);
 console.log("GITHUB_EVENT_NAME: ", GITHUB_EVENT_NAME);
 console.log("execFileSync: ",  child_process.execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"]).toString().trim())
 console.log("=======================");
