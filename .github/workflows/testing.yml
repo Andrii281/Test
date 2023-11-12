@@ -11,12 +11,6 @@ jobs:
       - name: install
         run: npm i
       - name : Print Title of PR
-        env:
-          PULL_TITLE: ${{ toJson(github.event.pull_request.title) }}
-        run: echo The Title of your PR is $TITLE
-      - name : Print Title of PR
         run: echo The Title of your PR is ${{ github.event.pull_request.title }}
       - name: Aplication
-        env:
-          PULL_TITLE: ${{ toJson(github.event.pull_request.title) }}
         run: node checkBranckName.js
