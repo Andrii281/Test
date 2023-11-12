@@ -1,14 +1,10 @@
 const { execFileSync } = require('child_process');
-const { PULL_TITLE, GITHUB_HEAD_REF } = process.env;
+const { PULL_TITLE, GITHUB_HEAD_REF, GITHUB_EVENT_NAME } = process.env;
 
-const BranchName = PULL_TITLE ?? "Error";
-console.log("GITHUB_HEAD_REF: \n", GITHUB_HEAD_REF)
-console.log("CI_MERGE_REQUEST_SOURCE_BRANCH_NAME/TITLE: \n", PULL_TITLE)
-console.log("execFileSync: \n", execFileSync('git',['rev-parse', '--abbrev-ref', 'HEAD']).toString().trim())
-console.log("BranchName: ", BranchName)
 
-console.log("BranchName: ", BranchName);
-console.log("process.env: ", process.env);
+console.log("PULL_TITLE: ", PULL_TITLE);
+console.log("GITHUB_HEAD_REF: ", GITHUB_HEAD_REF);
+console.log("GITHUB_EVENT_NAME: ", GITHUB_EVENT_NAME);
 
 function checkBranchName (branchName) {
   if(branchName.match(/main$|develop$/)) {
