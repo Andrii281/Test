@@ -1,8 +1,8 @@
 const child_process = require("child_process");
 
-const { PULL_TITLE, GITHUB_HEAD_REF, GITHUB_EVENT_NAME, GITHUB_REF_NAME, GITHUB_BASE_REF } = process.env;
+const { GITHUB_PULL_TITLE, GITHUB_HEAD_REF, GITHUB_EVENT_NAME, GITHUB_REF_NAME, GITHUB_BASE_REF } = process.env;
 
-console.log("PULL_TITLE: ", PULL_TITLE);
+console.log("PULL_TITLE: ", GITHUB_PULL_TITLE);
 console.log("GITHUB_HEAD_REF: ", GITHUB_HEAD_REF);
 console.log("GITHUB_REF_NAME: ", GITHUB_REF_NAME);
 console.log("GITHUB_BASE_REF: ", GITHUB_BASE_REF);
