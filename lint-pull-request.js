@@ -6,7 +6,7 @@ if(GITHUB_EVENT_NAME !== "pull_request") {
 
 executeScript(GITHUB_PULL_TITLE);
 
-export function executeScript(PullRequstName) {
+module.exports =  function executeScript(PullRequstName) {
   const error = lintPullRequest(PullRequstName)
   if(error !== null) {
     console.error(`${error}\nPull request name: ${PullRequstName} is forbidden`);
@@ -14,7 +14,7 @@ export function executeScript(PullRequstName) {
   }
 }
 
-export function lintPullRequest(pullRequestToCheck) {
+module.exports = function lintPullRequest(pullRequestToCheck) {
   const startNameCheck = pullRequestToCheck.match(/^(\[PILLP-\d+]){1}/);
   if (startNameCheck === null) {
     return "Name of full reques must start with [PILLP-$(TASK_NUMBER)]"
