@@ -13,4 +13,4 @@ jobs:
       - name: Aplication
         env:
           GITHUB_PULL_TITLE: ${{ github.event.pull_request.title }}
-        run: node lint-pull-request.js
+        run: node checkBranckName.js

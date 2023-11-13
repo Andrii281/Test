@@ -11,5 +11,5 @@ jobs:
         run: npm i
       - name: Aplication
         env:
-          PULL_TITLE: ${{ toJson(github.event.pull_request.title) }}
-        run: node lint-pull-request.js
+          GITHUB_PULL_TITLE: ${{ github.event.pull_request.title }}
+        run: node checkBranckName.js

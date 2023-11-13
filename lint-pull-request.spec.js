@@ -42,4 +42,7 @@ describe("lint-pull-request", () => {
       })
     })
   })
+  describe("executeScript", () => {
+    
+  })
 })
