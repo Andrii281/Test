@@ -2,7 +2,7 @@ const {executeScript, lintPullRequest} = require("./lint-pull-request");
 
 describe("lint-pull-request", () => {
   describe("lintPullRequest", () => {
-    describe("should not return null", () => {
+    describe("should return an error message", () => {
       it("should return an error message if pull request name doesn't start with [PILLP-$(TASK_NUMBER)]", () => {
         const pullRequestName = "[BILLB] project_deploy";
 
@@ -31,6 +31,8 @@ describe("lint-pull-request", () => {
     
         expect(result).not.toBeNull();
       })
+    }) 
+    describe("should return null", () => {
       it("should return null for valid name of pull request", () => {
         const pullRequestName = "[PILLP-1] ProjectDeploy";
 
@@ -38,6 +40,6 @@ describe("lint-pull-request", () => {
     
         expect(result).not.toBeNull();
       })
-    }) 
+    })
   })
 })
