@@ -4,7 +4,7 @@ const { GITHUB_PULL_TITLE, GITHUB_HEAD_REF, GITHUB_EVENT_NAME, GITHUB_REF_NAME, 
 
 const branchName = GITHUB_REF_NAME ??  child_process.execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"]).toString().trim()
 
-console.log("branchName: ", branchName)
+console.log("branchName: ", branchName, " length: ", branchName.length)
 console.log("PULL_TITLE: ", GITHUB_PULL_TITLE);
 console.log("GITHUB_HEAD_REF: ", GITHUB_HEAD_REF);
 console.log("GITHUB_REF_NAME: ", GITHUB_REF_NAME);
