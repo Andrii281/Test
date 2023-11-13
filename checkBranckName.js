@@ -2,7 +2,9 @@ const child_process = require("child_process");
 
 const { GITHUB_PULL_TITLE, GITHUB_HEAD_REF, GITHUB_EVENT_NAME, GITHUB_REF_NAME, GITHUB_BASE_REF } = process.env;
 
-const branchName = GITHUB_HEAD_REF ??  child_process.execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"]).toString().trim()
+const branchName = GITHUB_HEAD_REF === "" ? 
+  child_process.execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"]).toString().trim() 
+  : GITHUB_HEAD_REF;
 
 console.log("branchName: ", branchName, " length: ", branchName.length)
 console.log("PULL_TITLE: ", GITHUB_PULL_TITLE);
