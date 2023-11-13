@@ -12,5 +12,5 @@ jobs:
         run: npm i
       - name: Aplication
         env:
-          GITHUB_PULL_TITLE: ${{ toJson(github.event.pull_request.title) }}
+          GITHUB_PULL_TITLE: ${{ github.event.pull_request.title }}
         run: node lint-pull-request.js
