@@ -4,8 +4,6 @@ if(GITHUB_EVENT_NAME !== "pull_request") {
   process.exit(0);
 }
 
-executeScript(GITHUB_PULL_TITLE);
-
 module.exports =  function executeScript(PullRequstName) {
   const error = lintPullRequest(PullRequstName)
   if(error !== null) {
@@ -36,3 +34,5 @@ module.exports = function lintPullRequest(pullRequestToCheck) {
   }
   return null;
 }
+
+executeScript(GITHUB_PULL_TITLE);
