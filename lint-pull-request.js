@@ -14,7 +14,7 @@ function executeScript(PullRequstName) {
   }
 }
 
-lintPullRequest(pullRequestToCheck) {
+function lintPullRequest(pullRequestToCheck) {
   const startNameCheck = pullRequestToCheck.match(/^(\[PILLP-\d+]){1}/);
   if (startNameCheck === null) {
     return "Name of full reques must start with [PILLP-$(TASK_NUMBER)]"
@@ -36,6 +36,5 @@ lintPullRequest(pullRequestToCheck) {
   }
   return null;
 }
-
 
 module.exports =  {executeScript, lintPullRequest}
