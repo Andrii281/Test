@@ -6,8 +6,6 @@ jobs:
   test:
     runs-on: windows-latest
     steps:
-      - name: install
-        run: npm i
       - name: Aplication
         env:
           GITHUB_PULL_TITLE: ${{ github.event.pull_request.title }}
