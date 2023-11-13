@@ -28,9 +28,9 @@ function lintPullRequest(pullRequestToCheck) {
     return "Should be only one space between start of pull request and body of pull request"
   }
   const bodyOfPullRequest = remainderOfPullRequest.substring(spaceCount.length);
-  const snakeCaseCheck = bodyOfPullRequest.match(/^([a-z0-9]+){1}(_[a-z0-9]+){0,}$/);
-  if(snakeCaseCheck === null) {
-    return "Body of Pull request name should be in the snake_case"
+  const titlecaseCheck = bodyOfPullRequest.match(/^[A-Z].*$/);
+  if (titlecaseCheck === null) {
+    return "Body of Pull request name should start with capital letter";
   }
   return null;
 }
