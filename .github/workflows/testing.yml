@@ -6,6 +6,8 @@ jobs:
   test:
     runs-on: windows-latest
     steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
       - name: Aplication
         env:
           GITHUB_PULL_TITLE: ${{ github.event.pull_request.title }}
