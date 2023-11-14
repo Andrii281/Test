@@ -1,12 +1,20 @@
-const { execFileSync } = require('child_process');
-const { TITLE } = process.env;
+const child_process = require("child_process");
 
-const BranchName = TITLE ?? "Error";
-console.log("CI_MERGE_REQUEST_SOURCE_BRANCH_NAME/TITLE: \n", TITLE)
-console.log("execFileSync: \n", execFileSync('git',['rev-parse', '--abbrev-ref', 'HEAD']).toString().trim())
-console.log("BranchName: ", BranchName)
+const { GITHUB_PULL_TITLE, GITHUB_HEAD_REF, GITHUB_EVENT_NAME, GITHUB_REF_NAME, GITHUB_BASE_REF } = process.env;
 
-checkBranchName(BranchName);
+const branchName = GITHUB_HEAD_REF === "" ? 
+  child_process.execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"]).toString().trim() 
+  : GITHUB_HEAD_REF;
+
+console.log("branchName: ", branchName, " length: ", branchName.length)
+console.log("PULL_TITLE: ", GITHUB_PULL_TITLE);
+console.log("GITHUB_HEAD_REF: ", GITHUB_HEAD_REF);
+console.log("GITHUB_REF_NAME: ", GITHUB_REF_NAME);
+console.log("GITHUB_BASE_REF: ", GITHUB_BASE_REF);
+console.log("GITHUB_EVENT_NAME: ", GITHUB_EVENT_NAME);
+console.log("execFileSync: ",  child_process.execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"]).toString().trim())
+console.log("=======================");
+console.log("process.env: ", process.env)
 
 function checkBranchName (branchName) {
   if(branchName.match(/main$|develop$/)) {
